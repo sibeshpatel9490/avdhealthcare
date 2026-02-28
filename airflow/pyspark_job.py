@@ -11,7 +11,7 @@ from airflow.providers.google.cloud.operators.dataproc import (
 PROJECT_ID = "project-ed1531e4-86b8-41af-aef"
 REGION = "us-east1"
 CLUSTER_NAME = "cluster-1"
-COMPOSER_BUCKET = "us-central1-avd-healthcare--4ab121cf-bucket"
+COMPOSER_BUCKET = "us-central1-healthcare-dev--660b224a-bucket"
 
 GCS_JOB_FILE_1 = f"gs://{COMPOSER_BUCKET}/data/etl/load_data.py"
 PYSPARK_JOB_1 = {
