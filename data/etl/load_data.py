@@ -13,21 +13,21 @@ storage_client = storage.Client()
 bq_client = bigquery.Client()
 
 # Google Cloud Storage (GCS) Configuration
-GCS_BUCKET = "avd-healthcare-bucket"
+GCS_BUCKET = "avd-healthcare-bucket-2026"
 HOSPITAL_NAME = "hospital"
 LANDING_PATH = f"gs://{GCS_BUCKET}/landing/{HOSPITAL_NAME}/"
 ARCHIVE_PATH = f"gs://{GCS_BUCKET}/landing/{HOSPITAL_NAME}/archive/"
 CONFIG_FILE_PATH = f"gs://{GCS_BUCKET}/configs/config.csv"
 
 # BigQuery Configuration
-BQ_PROJECT = "project-ed1531e4-86b8-41af-aef"
+BQ_PROJECT = "project-cb8ed425-ad0b-49f8-b53"
 BQ_AUDIT_TABLE = f"{BQ_PROJECT}.temp_dataset.audit_log"
 BQ_LOG_TABLE = f"{BQ_PROJECT}.temp_dataset.pipeline_logs"
 BQ_TEMP_PATH = f"{GCS_BUCKET}/temp/"  
 
 # MySQL Configuration
 MYSQL_CONFIG = {
-    "url": "jdbc:mysql://34.172.44.137:3306/hospital_db",
+    "url": "jdbc:mysql://35.193.93.196:3306/hospital_db",
     "driver": "com.mysql.cj.jdbc.Driver",
     "user": "user1",
     "password": "User1#1234"

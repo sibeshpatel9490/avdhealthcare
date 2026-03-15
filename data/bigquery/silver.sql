@@ -1,4 +1,4 @@
- CREATE TABLE IF NOT EXISTS `project-ed1531e4-86b8-41af-aef.silver_dataset.departments` (
+ CREATE TABLE IF NOT EXISTS `project-cb8ed425-ad0b-49f8-b53.silver_dataset.departments` (
     dept_id STRING,
     name STRING,
     is_quarantined BOOLEAN
@@ -6,10 +6,10 @@
 
 
 -- 2. Truncate Silver Table Before Inserting 
-TRUNCATE TABLE `project-ed1531e4-86b8-41af-aef.silver_dataset.departments`;
+TRUNCATE TABLE `project-cb8ed425-ad0b-49f8-b53.silver_dataset.departments`;
 
 -- 3. full load 
-INSERT INTO `project-ed1531e4-86b8-41af-aef.silver_dataset.departments`
+INSERT INTO `project-cb8ed425-ad0b-49f8-b53.silver_dataset.departments`
 SELECT DISTINCT 
     deptid,
     name,
@@ -18,13 +18,13 @@ SELECT DISTINCT
         ELSE FALSE 
     END AS is_quarantined
 FROM (
-    SELECT DISTINCT *  FROM `project-ed1531e4-86b8-41af-aef.bronze_dataset.departments`
+    SELECT DISTINCT *  FROM `project-cb8ed425-ad0b-49f8-b53.bronze_dataset.departments`
 );
 
 -------------------------------------------------------------------------------------------------------
 
 -- 1. Create table providers 
-CREATE TABLE IF NOT EXISTS `project-ed1531e4-86b8-41af-aef.silver_dataset.providers` (
+CREATE TABLE IF NOT EXISTS `project-cb8ed425-ad0b-49f8-b53.silver_dataset.providers` (
     ProviderID STRING,
     FirstName STRING,
     LastName STRING,
@@ -35,10 +35,10 @@ CREATE TABLE IF NOT EXISTS `project-ed1531e4-86b8-41af-aef.silver_dataset.provid
 );
 
 -- 2. Truncate Silver Table Before Inserting 
-TRUNCATE TABLE `project-ed1531e4-86b8-41af-aef.silver_dataset.providers`;
+TRUNCATE TABLE `project-cb8ed425-ad0b-49f8-b53.silver_dataset.providers`;
 
 -- 3. full load 
-INSERT INTO `project-ed1531e4-86b8-41af-aef.silver_dataset.providers`
+INSERT INTO `project-cb8ed425-ad0b-49f8-b53.silver_dataset.providers`
 SELECT DISTINCT 
     ProviderID,
     FirstName,
@@ -51,7 +51,7 @@ SELECT DISTINCT
         ELSE FALSE 
     END AS is_quarantined
 FROM (
-    SELECT DISTINCT * FROM `project-ed1531e4-86b8-41af-aef.bronze_dataset.providers`
+    SELECT DISTINCT * FROM `project-cb8ed425-ad0b-49f8-b53.bronze_dataset.providers`
  );
 
 -------------------------------------------------------------------------------------------------------
@@ -132,7 +132,7 @@ THEN UPDATE SET
 
 --------------------------------------------------
 -- encounters table
-CREATE TABLE IF NOT EXISTS `project-ed1531e4-86b8-41af-aef.silver_dataset.encounters` (
+CREATE TABLE IF NOT EXISTS `project-cb8ed425-ad0b-49f8-b53.silver_dataset.encounters` (
   EncounterID STRING,
   PatientID STRING,
   EncounterDate DATE,
@@ -144,8 +144,8 @@ CREATE TABLE IF NOT EXISTS `project-ed1531e4-86b8-41af-aef.silver_dataset.encoun
   ModifiedDate DATE,
   is_quarantined BOOLEAN
 );
-TRUNCATE TABLE `project-ed1531e4-86b8-41af-aef.silver_dataset.encounters`;
-INSERT INTO `project-ed1531e4-86b8-41af-aef.silver_dataset.encounters`
+TRUNCATE TABLE `project-cb8ed425-ad0b-49f8-b53.silver_dataset.encounters`;
+INSERT INTO `project-cb8ed425-ad0b-49f8-b53.silver_dataset.encounters`
 SELECT DISTINCT 
   EncounterID,
   PatientID,
@@ -161,11 +161,11 @@ SELECT DISTINCT
     ELSE FALSE 
   END AS is_quarantined
 FROM (
-  SELECT DISTINCT * FROM `project-ed1531e4-86b8-41af-aef.bronze_dataset.encounters`
+  SELECT DISTINCT * FROM `project-cb8ed425-ad0b-49f8-b53.bronze_dataset.encounters`
 );
 
 --------------------------------------
-CREATE TABLE IF NOT EXISTS `project-ed1531e4-86b8-41af-aef.silver_dataset.transactions` (
+CREATE TABLE IF NOT EXISTS `project-cb8ed425-ad0b-49f8-b53.silver_dataset.transactions` (
   TransactionID STRING,
   EncounterID STRING,
   PatientID STRING,
@@ -189,8 +189,8 @@ CREATE TABLE IF NOT EXISTS `project-ed1531e4-86b8-41af-aef.silver_dataset.transa
   ModifiedDate DATE,
   is_quarantined BOOLEAN
 );
-TRUNCATE TABLE `project-ed1531e4-86b8-41af-aef.silver_dataset.transactions`;
-INSERT INTO `project-ed1531e4-86b8-41af-aef.silver_dataset.transactions`
+TRUNCATE TABLE `project-cb8ed425-ad0b-49f8-b53.silver_dataset.transactions`;
+INSERT INTO `project-cb8ed425-ad0b-49f8-b53.silver_dataset.transactions`
 SELECT DISTINCT 
   TransactionID,
   EncounterID,
@@ -218,13 +218,13 @@ SELECT DISTINCT
     ELSE FALSE 
   END AS is_quarantined
 FROM (
-  SELECT DISTINCT * FROM `project-ed1531e4-86b8-41af-aef.bronze_dataset.transactions`
+  SELECT DISTINCT * FROM `project-cb8ed425-ad0b-49f8-b53.bronze_dataset.transactions`
 );
 
 -----------------------------
 -- 1. Create 
 CREATE TABLE IF NOT EXISTS
-`project-ed1531e4-86b8-41af-aef.silver_dataset.claims` (
+`project-cb8ed425-ad0b-49f8-b53.silver_dataset.claims` (
     claim_id STRING,
     transaction_id STRING,
     patient_id STRING,
@@ -250,11 +250,11 @@ CREATE TABLE IF NOT EXISTS
 
 -- 2. Truncate Silver Table Before Inserting 
 TRUNCATE TABLE
-`project-ed1531e4-86b8-41af-aef.silver_dataset.claims`;
+`project-cb8ed425-ad0b-49f8-b53.silver_dataset.claims`;
 
 ---
 INSERT INTO
-`project-ed1531e4-86b8-41af-aef.silver_dataset.claims`
+`project-cb8ed425-ad0b-49f8-b53.silver_dataset.claims`
 SELECT
     -- Directly select and rename fields
     t1.ClaimID AS claim_id,
@@ -296,4 +296,4 @@ SELECT
         ELSE FALSE 
     END AS is_quarantined
 FROM
-    `project-ed1531e4-86b8-41af-aef.bronze_dataset.claims` t1;
+    `project-cb8ed425-ad0b-49f8-b53.bronze_dataset.claims` t1;

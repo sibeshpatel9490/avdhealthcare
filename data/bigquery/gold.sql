@@ -1,5 +1,5 @@
 -- encounter_summary
-CREATE TABLE IF NOT EXISTS `project-ed1531e4-86b8-41af-aef.gold_dataset.encounter_summary` (
+CREATE TABLE IF NOT EXISTS `project-cb8ed425-ad0b-49f8-b53.gold_dataset.encounter_summary` (
     DepartmentID STRING,
     DepartmentName STRING,
     Year INT,
@@ -9,9 +9,9 @@ CREATE TABLE IF NOT EXISTS `project-ed1531e4-86b8-41af-aef.gold_dataset.encounte
     UniqueProcedures INT
 );
 
-TRUNCATE TABLE `project-ed1531e4-86b8-41af-aef.gold_dataset.encounter_summary`;
+TRUNCATE TABLE `project-cb8ed425-ad0b-49f8-b53.gold_dataset.encounter_summary`;
 
-INSERT INTO `project-ed1531e4-86b8-41af-aef.gold_dataset.encounter_summary`
+INSERT INTO `project-cb8ed425-ad0b-49f8-b53.gold_dataset.encounter_summary`
 SELECT
   CAST(e.DepartmentID AS STRING) AS DepartmentID,
   d.name AS DepartmentName,
@@ -28,7 +28,7 @@ GROUP BY
 
 -------------------------
 
-CREATE TABLE IF NOT EXISTS `project-ed1531e4-86b8-41af-aef.gold_dataset.provider_performance_summary` (
+CREATE TABLE IF NOT EXISTS `project-cb8ed425-ad0b-49f8-b53.gold_dataset.provider_performance_summary` (
     ProviderID STRING,
     FirstName STRING,
     LastName STRING,
@@ -39,9 +39,9 @@ CREATE TABLE IF NOT EXISTS `project-ed1531e4-86b8-41af-aef.gold_dataset.provider
     ClaimApprovalRate FLOAT64
 );
 
-TRUNCATE TABLE `project-ed1531e4-86b8-41af-aef.gold_dataset.provider_performance_summary`;
+TRUNCATE TABLE `project-cb8ed425-ad0b-49f8-b53.gold_dataset.provider_performance_summary`;
 
-INSERT INTO `project-ed1531e4-86b8-41af-aef.gold_dataset.provider_performance_summary`
+INSERT INTO `project-cb8ed425-ad0b-49f8-b53.gold_dataset.provider_performance_summary`
 SELECT
   p.ProviderID,
   p.FirstName,
@@ -62,7 +62,7 @@ GROUP BY
   p.ProviderID, p.FirstName, p.LastName, p.Specialization;
 
 -----------------------------
-CREATE TABLE IF NOT EXISTS `project-ed1531e4-86b8-41af-aef.gold_dataset.patient_billing_summary` (
+CREATE TABLE IF NOT EXISTS `project-cb8ed425-ad0b-49f8-b53.gold_dataset.patient_billing_summary` (
     PatientID STRING,
     TotalEncounters INT,
     TotalBilled FLOAT64,
@@ -71,9 +71,9 @@ CREATE TABLE IF NOT EXISTS `project-ed1531e4-86b8-41af-aef.gold_dataset.patient_
     AvgDeductible FLOAT64
 );
 
-TRUNCATE TABLE `project-ed1531e4-86b8-41af-aef.gold_dataset.patient_billing_summary`;
+TRUNCATE TABLE `project-cb8ed425-ad0b-49f8-b53.gold_dataset.patient_billing_summary`;
 
-INSERT INTO `project-ed1531e4-86b8-41af-aef.gold_dataset.patient_billing_summary`
+INSERT INTO `project-cb8ed425-ad0b-49f8-b53.gold_dataset.patient_billing_summary`
 SELECT
   t.PatientID,
   COUNT(DISTINCT t.EncounterID) AS TotalEncounters,
@@ -88,7 +88,7 @@ GROUP BY t.PatientID;
 
 --------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS `project-ed1531e4-86b8-41af-aef.gold_dataset.claims_summary_by_status_payor` (
+CREATE TABLE IF NOT EXISTS `project-cb8ed425-ad0b-49f8-b53.gold_dataset.claims_summary_by_status_payor` (
     claim_status STRING,
     payor_type STRING,
     Year INT,
@@ -97,9 +97,9 @@ CREATE TABLE IF NOT EXISTS `project-ed1531e4-86b8-41af-aef.gold_dataset.claims_s
     TotalPaidAmount FLOAT64
 );
 
-TRUNCATE TABLE `project-ed1531e4-86b8-41af-aef.gold_dataset.claims_summary_by_status_payor`;
+TRUNCATE TABLE `project-cb8ed425-ad0b-49f8-b53.gold_dataset.claims_summary_by_status_payor`;
 
-INSERT INTO `project-ed1531e4-86b8-41af-aef.gold_dataset.claims_summary_by_status_payor`
+INSERT INTO `project-cb8ed425-ad0b-49f8-b53.gold_dataset.claims_summary_by_status_payor`
 SELECT
   c.claim_status,
   c.payor_type,

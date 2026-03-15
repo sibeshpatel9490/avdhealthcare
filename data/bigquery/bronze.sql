@@ -1,29 +1,29 @@
-CREATE EXTERNAL TABLE IF NOT EXISTS `project-ed1531e4-86b8-41af-aef.bronze_dataset.departments` 
+CREATE EXTERNAL TABLE IF NOT EXISTS `project-cb8ed425-ad0b-49f8-b53.bronze_dataset.departments` 
 OPTIONS (
   format = 'JSON',
-  uris = ['gs://avd-healthcare-bucket/landing/hospital/departments/*.json']
+  uris = ['gs://avd-healthcare-bucket-2026/landing/hospital/departments/*.json']
 );
 
-CREATE EXTERNAL TABLE IF NOT EXISTS `project-ed1531e4-86b8-41af-aef.bronze_dataset.encounters` 
+CREATE EXTERNAL TABLE IF NOT EXISTS `project-cb8ed425-ad0b-49f8-b53.bronze_dataset.encounters` 
 OPTIONS (
   format = 'JSON',
-  uris = ['gs://avd-healthcare-bucket/landing/hospital/encounters/*.json']
+  uris = ['gs://avd-healthcare-bucket-2026/landing/hospital/encounters/*.json']
 );
 
-CREATE EXTERNAL TABLE IF NOT EXISTS `project-ed1531e4-86b8-41af-aef.bronze_dataset.patients` 
+CREATE EXTERNAL TABLE IF NOT EXISTS `project-cb8ed425-ad0b-49f8-b53.bronze_dataset.patients` 
 OPTIONS (
   format = 'JSON',
-  uris = ['gs://avd-healthcare-bucket/landing/hospital/patients/*.json']
+  uris = ['gs://avd-healthcare-bucket-2026/landing/hospital/patients/*.json']
 );
 
-CREATE EXTERNAL TABLE IF NOT EXISTS `project-ed1531e4-86b8-41af-aef.bronze_dataset.providers` 
+CREATE EXTERNAL TABLE IF NOT EXISTS `project-cb8ed425-ad0b-49f8-b53.bronze_dataset.providers` 
 OPTIONS (
   format = 'JSON',
-  uris = ['gs://avd-healthcare-bucket/landing/hospital/providers/*.json']
+  uris = ['gs://avd-healthcare-bucket-2026/landing/hospital/providers/*.json']
 );
 
-CREATE EXTERNAL TABLE IF NOT EXISTS `project-ed1531e4-86b8-41af-aef.bronze_dataset.transactions` 
+CREATE EXTERNAL TABLE IF NOT EXISTS `project-cb8ed425-ad0b-49f8-b53.bronze_dataset.transactions` 
 OPTIONS (
   format = 'JSON',
-  uris = ['gs://avd-healthcare-bucket/landing/hospital/transactions/*.json']
+  uris = ['gs://avd-healthcare-bucket-2026/landing/hospital/transactions/*.json']
 );
